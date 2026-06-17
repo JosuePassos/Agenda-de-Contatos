@@ -4,10 +4,12 @@
 int main()
 {
  
-    int escolha;
- 
-    do{
+    int opcao;
+
+
     printf("SEJA BEM-VINDO A LISTA DE CONTATOS\n");
+
+    do{
  
     printf("\nO que deseja fazer?\n");
     printf("1 - Adicionar contato\n");
@@ -15,10 +17,10 @@ int main()
     printf("3 - Consultar contato pelo nome\n");
     printf("4 - Excluir contato\n");
     printf("5 - Sair\n");
-    scanf("%i", &escolha);
+    scanf("%i", &opcao);
  
    
-        switch(escolha){
+        switch(opcao){
     case 1:
         printf("Adicionar contatos");
         break;
@@ -32,14 +34,14 @@ int main()
         printf("Excluir contato");
         break;
     case 5:
-        printf("morra");
+        printf("Saindo...");
         break;
     default:
         printf("Valor inválido");
    
          
     }
-    } while (escolha < 1 || escolha > 5 );
+    } while (opcao != 5);
     return 0;
 }
  
