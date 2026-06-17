@@ -1,15 +1,26 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 typedef struct {
-        char nome[30];
-        char numero[18];
+        char nome[50];
+        char numero[20];
     } contatos; 
     
     contatos agenda[100];
     int totalContatos = 0;
     
-void adicionarContato();
+void adicionarContato(){
+    printf("Digite o nome do contato: ");
+    scanf(" %[^\n]", agenda[totalContatos].nome);
+    
+    printf("Digite o numero do contato: ");
+    scanf(" %[^\n]", agenda[totalContatos].numero);
+    printf("\n");
+    printf("!Contato adicionado com sucesso!\n");
+    
+    totalContatos++;
+}
 void listarContato();
 void consultarContato();
 void excluirContato();
