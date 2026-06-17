@@ -1,6 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+typedef struct {
+        char nome[30];
+        char numero[18];
+    } contatos; 
+    
+    contatos agenda[100];
+    int totalContatos = 0;
+    
+void adicionarContato();
+void listarContato();
+void consultarContato();
+void excluirContato();
+
 int main()
 {
  
@@ -22,7 +35,7 @@ int main()
    
         switch(opcao){
     case 1:
-        printf("Adicionar contatos");
+        adicionarContato();
         break;
     case 2:
         printf("Listar contatos");
@@ -44,4 +57,4 @@ int main()
     } while (opcao != 5);
     return 0;
 }
- 
+    
