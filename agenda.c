@@ -21,7 +21,19 @@ void adicionarContato(){
     
     totalContatos++;
 }
-void listarContato();
+void listarContato(){
+    
+    printf("Lista de contatos\n");
+    
+        if (totalContatos == 0){
+            printf("\nsem contatos\n");
+        } else{
+            for (int i = 0;i < totalContatos; i++){
+                printf("Nome: %s / Numero: %s\n", agenda[i].nome, agenda[i].numero);
+            }
+        }
+            
+}
 void consultarContato();
 void excluirContato();
 
