@@ -28,19 +28,32 @@ void listarContato(){
         if (totalContatos == 0){
             printf("\nsem contatos\n");
         } else{
-            for (int i = 0;i < totalContatos; i++){
+            for (i = 0;i < totalContatos; i++){
                 printf("Nome: %s / Numero: %s\n", agenda[i].nome, agenda[i].numero);
             }
         }
             
 }
-void consultarContato();
+void consultarContato(){
+    
+    char buscaNome[50];
+
+    printf("Digite o nome do contato que deseja consultar: ");
+    scanf(" %[^\n]", buscaNome);
+    int i = 0;
+    
+    if (strcmp(buscaNome, agenda[i].nome)== 0){
+        printf("\nNome: %s / Numero: %s\n", agenda[i].nome, agenda[i].numero);
+    } else {
+        printf("\n%s Não foi encontrado\n", buscaNome);
+    }
+}
 void excluirContato();
 
 int main()
 {
  
-    int opcao;
+    int opcao, i;
 
 
     printf("SEJA BEM-VINDO A LISTA DE CONTATOS\n");
@@ -61,7 +74,7 @@ int main()
         adicionarContato();
         break;
     case 2:
-        printf("Listar contatos");
+        listarContato();
         break;
     case 3:
         printf("Consultar contato pelo nome");
