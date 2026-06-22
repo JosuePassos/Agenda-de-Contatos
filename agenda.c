@@ -11,6 +11,11 @@ typedef struct {
     int totalContatos = 0;
     
 void adicionarContato(){
+
+if (totalContatos >= 100) {
+        printf("Agenda cheia!\n");
+        return;
+    }
     printf("Digite o nome do contato: ");
     scanf(" %[^\n]", agenda[totalContatos].nome);
     
@@ -22,6 +27,8 @@ void adicionarContato(){
     totalContatos++;
 }
 void listarContato(){
+
+    int i;
     
     printf("Lista de contatos\n");
     
@@ -40,20 +47,22 @@ void consultarContato(){
 
     printf("Digite o nome do contato que deseja consultar: ");
     scanf(" %[^\n]", buscaNome);
-    int i = 0;
+    int i;
     
-    if (strcmp(buscaNome, agenda[i].nome)== 0){
-        printf("\nNome: %s / Numero: %s\n", agenda[i].nome, agenda[i].numero);
-    } else {
-        printf("\n%s Não foi encontrado\n", buscaNome);
+    for (i = 0; i < totalContatos; i++) {
+        if (strcmp(buscaNome, agenda[i].nome) == 0) {
+            printf("\nNome: %s / Numero: %s\n", agenda[i].nome, agenda[i].numero);
+            return;
+        }
     }
+    printf("\n%s Não foi encontrado\n", buscaNome);   
 }
-void excluirContato();
+void excluirContato(){}
 
 int main()
 {
  
-    int opcao, i;
+    int opcao;
 
 
     printf("SEJA BEM-VINDO A LISTA DE CONTATOS\n");
@@ -77,10 +86,10 @@ int main()
         listarContato();
         break;
     case 3:
-        printf("Consultar contato pelo nome");
+        consultarContato();
         break;
     case 4:
-        printf("Excluir contato");
+        excluirContato();
         break;
     case 5:
         printf("Saindo...");
