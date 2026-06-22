@@ -57,7 +57,25 @@ void consultarContato(){
     }
     printf("\n%s Não foi encontrado\n", buscaNome);   
 }
-void excluirContato(){}
+void excluirContato(){
+    char excluiNome[50];
+    int i, j;
+    
+    printf("Digite o nome do contato que deseja excluir: ");
+    scanf(" %[^\n]", excluiNome);
+    
+    for (i = 0; i < totalContatos; i++) {
+        if (strcmp(excluiNome, agenda[i].nome) == 0) {
+            for (j = i; j < totalContatos - 1; j++) {
+                agenda[j] = agenda[j + 1];
+            }
+            totalContatos--;
+            printf("\nContato excluido com sucesso!\n");
+            return;
+        }
+    }
+    printf("\n%s Não foi encontrado\n", excluiNome);
+}
 
 int main()
 {
