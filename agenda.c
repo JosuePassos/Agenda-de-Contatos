@@ -41,6 +41,13 @@ if (totalContatos >= 100) {
 
     printf("Digite o numero do contato: ");
     scanf(" %[^\n]", agenda[totalContatos].numero);
+    int i;
+    for (i = 0; i < totalContatos; i++) {
+        if (strcmp(agenda[totalContatos].numero, agenda[i].numero) == 0) {
+            printf("\nNumero ja cadastrado!\n");
+            return;
+        }
+    }
     printf("\n");
     printf("!Contato adicionado com sucesso!\n");
 
